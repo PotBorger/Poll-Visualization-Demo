@@ -15,6 +15,8 @@
 	<Tabs {items} {activeItem} on:tabChange={tabChange}></Tabs>
 	{#if activeItem === 'Current Polls'}
 		<p>Polls components will be here</p>
+	{:else if activeItem === 'Add New Poll'}
+		<p>Add new poll here</p>
 	{/if}
 </main>
 <Footer/>
