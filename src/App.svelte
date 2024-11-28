@@ -13,16 +13,6 @@
 		console.log(e.detail)
 		activeItem = e.detail;}
 
-	let polls = [
-	{
-		id: 1,
-		question: 'Python or JavaScript',
-		answerA : 'Python',
-		answerB : 'JavaScript',
-		votesA: 9,
-		votesB: 15
-	},
-	]
 	const handleAdd = (e)=>{
 		const poll = e.detail;
 		polls = [poll,...polls];
@@ -42,13 +32,14 @@
 
 		polls = copyOfPolls;
 	}
+	
 </script>
 
 <Header/>
 <main>
 	<Tabs {items} {activeItem} on:tabChange={tabChange}></Tabs>
 	{#if activeItem === 'Current Polls'}
-		<PollList {polls} on:vote={handleVote}/>
+		<PollList on:vote={handleVote}/>
 	{:else if activeItem === 'Add New Poll'}
 		<CreatePollForm on:add={handleAdd}/>
 	{:else}
